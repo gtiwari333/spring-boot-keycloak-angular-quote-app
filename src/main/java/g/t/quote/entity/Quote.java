@@ -27,11 +27,11 @@ public class Quote implements Serializable {
 
     private Instant addedOn;
 
-    private Long readCount;
+    private long readCount;
 
-    private Long likeCount;
+    private long likeCount;
 
-    private Long dislikeCount;
+    private long dislikeCount;
 
     public Quote(Source source, String value, String author) {
         this.source = source;

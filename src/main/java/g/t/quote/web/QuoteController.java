@@ -54,7 +54,13 @@ public class QuoteController {
             }
         } while (quotes.size() != count);
 
+        updateReadCounts(quotes);
+
         return quotes;
+    }
+
+    private void updateReadCounts(List<Quote> quotes) {
+        quoteRepository.updateReadCounts(quotes.stream().map(Quote::getId).collect(Collectors.toList()));
     }
 
     private List<Quote> readRandomQuotes(Long maxId, int count) {

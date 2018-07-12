@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -25,7 +26,7 @@ public class ScrapperService {
     @PostConstruct
     public void process() {
 
-        List<Source> sourcesToProcess = Arrays.asList(Source.values());
+        List<Source> sourcesToProcess = new ArrayList<>(Arrays.asList(Source.values()));
         sourcesToProcess.removeAll(quoteRepository.findAllLoadedSources());
 
         for (Source source : sourcesToProcess) {
