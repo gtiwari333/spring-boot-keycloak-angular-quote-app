@@ -25,34 +25,34 @@ public class QuoteController {
         this.quoteRepository = quoteRepository;
     }
 
-    @GetMapping(value = {"", "/{countOpt}"})
-    public List<Quote> findRandomQuotes(@PathVariable Optional<Integer> countOpt) {
+    @GetMapping(value = {"", "/{requestedSizeOpt}"})
+    public List<Quote> findRandomQuotes(@PathVariable Optional<Integer> requestedSizeOpt) {
 
-        log.info("Got request to read {} quotes", (countOpt.isPresent() ? countOpt.get() : "DEFAULT"));
+        log.info("Got request to read {} quotes", (requestedSizeOpt.isPresent() ? requestedSizeOpt.get() : "DEFAULT"));
 
-        int count = 2;
-        if (countOpt.isPresent()) {
-            count = countOpt.get();
-            if (count > 10) {
-                count = 10;
+        int requestedSize = 2;
+        if (requestedSizeOpt.isPresent()) {
+            requestedSize = requestedSizeOpt.get();
+            if (requestedSize > 10) {
+                requestedSize = 10;
             }
         }
 
-        Long maxId = quoteRepository.count();
+        Long dbRecordCount = quoteRepository.findMaxId();
 
         int tryCount = 0; // don't stuck in loop searching for enough quote...
         List<Quote> quotes = new ArrayList<>();
         do {
             tryCount++;
 
-            count = count - quotes.size();
-            quotes.addAll(readRandomQuotes(maxId, count));
+            requestedSize = requestedSize - quotes.size();
+            quotes.addAll(readRandomQuotes(dbRecordCount, requestedSize));
 
             if (tryCount > 10) {
                 log.warn("Ohh already tried 10 times... let's not stuck in loop");
                 break;
             }
-        } while (quotes.size() != count);
+        } while (quotes.size() != requestedSize);
 
         updateReadCounts(quotes);
 
@@ -63,8 +63,8 @@ public class QuoteController {
         quoteRepository.updateReadCounts(quotes.stream().map(Quote::getId).collect(Collectors.toList()));
     }
 
-    private List<Quote> readRandomQuotes(Long maxId, int count) {
-        List<Long> randomIds = new Random().longs(1, maxId).boxed().distinct().limit(count).collect(Collectors.toList());
+    private List<Quote> readRandomQuotes(Long dbRecordCount, int count) {
+        List<Long> randomIds = new Random().longs(1, dbRecordCount).boxed().distinct().limit(count).collect(Collectors.toList());
         return quoteRepository.findAllById(randomIds);
     }
 }

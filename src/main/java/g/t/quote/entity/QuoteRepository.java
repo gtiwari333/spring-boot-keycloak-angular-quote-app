@@ -17,4 +17,7 @@ public interface QuoteRepository extends JpaRepository<Quote, Long> {
     @Transactional
     @Query("update Quote q set q.readCount = q.readCount + 1 where id in (:ids)")
     void updateReadCounts(@Param("ids") Iterable<Long> ids);
+
+    @Query("select max(id) from Quote q  ")
+    Long findMaxId();
 }
