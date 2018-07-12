@@ -1,14 +1,14 @@
 import {Component, Input} from '@angular/core';
-import {NavController} from 'ionic-angular';
+import {Quote} from "../../entities/quote.model";
 
 @Component({
   selector: 'quote-item',
   templateUrl: 'quote-item.html'
 })
 export class QuoteItem {
-  @Input() quote: any;
+  @Input() quote:  Array<Quote>;
 
-  constructor(public navCtrl: NavController) {
+  constructor( ) {
 
   }
 

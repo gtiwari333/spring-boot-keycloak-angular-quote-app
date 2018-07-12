@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {NavController} from 'ionic-angular';
+import {Quote} from "../../entities/quote.model";
 
 @Component({
   selector: 'page-quote',
@@ -7,9 +8,10 @@ import {NavController} from 'ionic-angular';
 })
 export class QuotePage {
   quotes = [
-    {author: "Author 1", content: "A quote....", viewCount: "1"},
-    {author: "Author A", content: "AA quote....", viewCount: "10"},
-    {author: "Author 2", content: "A quote 2....", viewCount: "2"}];
+    new Quote(1, "dsf", "dssssssssf", 1, 2, 3),
+    new Quote(1, "dsdsfdsff", "dsf", 1, 2, 3),
+    new Quote(1, "dsf", "dsf", 1, 2, 3),
+  ];
 
   constructor(public navCtrl: NavController) {
 

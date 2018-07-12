@@ -5,11 +5,11 @@ import {MyApp} from './app.component';
 
 import {AboutPage} from '../pages/about/about';
 import {QuotePage} from '../pages/quote/quote';
-import {QuoteItem} from "../pages/quote-item/quote-item";
 import {TabsPage} from '../pages/tabs/tabs';
 
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
+import {QuoteItem} from "../pages/quote-item/quote-item";
 
 @NgModule({
   declarations: [
@@ -28,7 +28,6 @@ import {SplashScreen} from '@ionic-native/splash-screen';
     MyApp,
     AboutPage,
     QuotePage,
-    QuoteItem,
     TabsPage
   ],
   providers: [
