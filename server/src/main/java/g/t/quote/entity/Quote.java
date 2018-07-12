@@ -23,7 +23,7 @@ public class Quote implements Serializable {
     private String author;
 
     @Column(columnDefinition = "LONGTEXT")
-    private String value;
+    private String content;
 
     private Instant addedOn;
 
@@ -33,9 +33,9 @@ public class Quote implements Serializable {
 
     private long dislikeCount;
 
-    public Quote(Source source, String value, String author) {
+    public Quote(Source source, String content, String author) {
         this.source = source;
-        this.value = value;
+        this.content = content;
         this.author = author;
         this.addedOn = Instant.now();
     }

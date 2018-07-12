@@ -35,7 +35,7 @@ public class GoodReadsScrapper implements WebScraper {
             log.trace(qStr);
 
             String[] parts = qStr.split("―");
-            String quoteText = clean(parts[0].replaceAll("“", ""));
+            String quoteText = clean(parts[0].replaceAll("“", "").replaceAll("”", ""));
             String author = clean(parts[1].trim());
 
             quotes.add(new Quote(source, quoteText, author));

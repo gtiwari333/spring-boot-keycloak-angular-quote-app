@@ -3,10 +3,7 @@ package g.t.quote.web;
 import g.t.quote.entity.Quote;
 import g.t.quote.entity.QuoteRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +23,7 @@ public class QuoteController {
     }
 
     @GetMapping(value = {"", "/{requestedSizeOpt}"})
+    @CrossOrigin
     public List<Quote> findRandomQuotes(@PathVariable Optional<Integer> requestedSizeOpt) {
 
         log.info("Got request to read {} quotes", (requestedSizeOpt.isPresent() ? requestedSizeOpt.get() : "DEFAULT"));
