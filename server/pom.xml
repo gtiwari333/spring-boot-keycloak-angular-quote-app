@@ -8,7 +8,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>quote</name>
+    <name>server-application</name>
     <description>A full stack java application - spring, jpa, jsoup, rest api, mobile app with &#39;xyz&#39;
     </description>
 
