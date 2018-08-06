@@ -8,14 +8,14 @@
 - The client (mobile app) will randomly display such quotes. Has an ability to record and display view count.
 
 
-## Mobile Client - Ionic3 App
+### Mobile Client - Ionic3 App
 - Follow installation steps from https://ionicframework.com/docs/v1/guide/installation.html
 - Download android SDK and add ANDROID_HOME. It was C:\Users\gt\AppData\Local\Android\Sdk
 - Generate APK file: `ionic cordova build --release android`
 - DEV/PROD environment --> currently we need to manually comment/uncomment mobile/src/app/app.constants.ts for SERVER_API_URL
     - Ionic 4 will have default support for environment variables 
 
-# Server: Spring Boot
+### Server: Spring Boot
 - Uses JSoup to parse the quote websites and stores into H2 database at startup
 - Quotes can be retrieved by REST apis `HOST/quotes` 
 - Deploy to Heroku 
@@ -23,7 +23,7 @@
     - Added file: Procfile `web: java -jar server/target/server-0.0.1-SNAPSHOT.jar -Dserver.port=$PORT`
     - Added server.port entry on application.yml   ` server: port: ${PORT:8080}`
      
-# Run Locally
+# How to run/test Locally or in Mobile device?
 - Start Server : Run g.t.quote.QuoteApplication
 - Start client
     - Comment/Uncomment the line to use
