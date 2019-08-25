@@ -1,6 +1,7 @@
 package g.t.quote.entity;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -8,6 +9,7 @@ import java.time.Instant;
 
 @Entity
 @Data
+@NoArgsConstructor
 public class Quote implements Serializable {
 
     private static final long serialVersionUID = 744281458877843465L;
