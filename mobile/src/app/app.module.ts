@@ -1,45 +1,26 @@
-import {ErrorHandler, NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
-import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
-import { HttpClientModule } from '@angular/common/http';
-import {MyApp} from './app.component';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { RouteReuseStrategy } from '@angular/router';
 
-import {AboutPage} from '../pages/about/about';
-import {QuotePage} from '../pages/quote/quote';
-import {TabsPage} from '../pages/tabs/tabs';
-import {QuoteService} from "../entities/quote.service";
+import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
 
-import {StatusBar} from '@ionic-native/status-bar';
-import {SplashScreen} from '@ionic-native/splash-screen';
-import {QuoteItem} from "../pages/quote-item/quote-item";
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { QuoteService} from "./entities/quote.service";
+import { HttpClientModule} from "@angular/common/http";
 
 @NgModule({
-  declarations: [
-    MyApp,
-    AboutPage,
-    QuotePage,
-    QuoteItem,
-    TabsPage
-  ],
-  imports: [
-    HttpClientModule,
-    BrowserModule,
-    IonicModule.forRoot(MyApp)
-  ],
-  bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp,
-    AboutPage,
-    QuotePage,
-    QuoteItem,
-    TabsPage
-  ],
+  declarations: [AppComponent],
+  entryComponents: [],
+  imports: [BrowserModule, HttpClientModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [
-    QuoteService,
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
-  ]
+    QuoteService,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+  ],
+  bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule {}

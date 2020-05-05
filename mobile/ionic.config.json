@@ -1,7 +1,7 @@
 {
   "name": "quote-app",
   "integrations": {
-    "cordova": {}
+    "capacitor": {}
   },
-  "type": "ionic-angular"
+  "type": "angular"
 }
