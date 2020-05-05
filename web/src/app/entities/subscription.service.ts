@@ -10,25 +10,15 @@ const httpOptions = {
 }
 
 @Injectable()
-export class QuoteService {
-  private resourceUrl = SERVER_API_URL + 'quotes';
+export class SubscriptionService {
+  private resourceUrl = SERVER_API_URL + 'subscribe';
 
   constructor(private http: HttpClient) {
   }
 
-  getQuotes(size?: number): Observable<any> {
-    return this.http
-      .get<IQuote>(`${this.resourceUrl}/${size}`);
-  }
 
-  getQuoteById(id?: number): Observable<any> {
-    return this.http
-      .get<IQuote>(`${this.resourceUrl}/by-id/${id}`);
-  }
-
-
-  saveNote(note) {
-    let body = JSON.stringify(note);
+  save(s) {
+    let body = JSON.stringify(s);
     return this.http.post(`${this.resourceUrl}/`, body, httpOptions);
   }
 
