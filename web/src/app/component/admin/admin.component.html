@@ -1,0 +1,28 @@
+<div class="container">
+  <table class="table table-bordered table-inverse">
+    <tr>
+      <th>Author</th>
+      <th>Content</th>
+      <th class="text-right">Read#</th>
+      <th class="text-right">Like#</th>
+      <th class="text-right">Dislike#</th>
+    </tr>
+    <tr *ngFor="let note of quotes">
+      <td>
+        {{note.author}}
+      </td>
+      <td>
+        {{note.content}}
+      </td>
+      <td>
+        {{note.readCount}}
+      </td>
+      <td>
+        {{note.likeCount}}
+      </td>
+      <td>
+        {{note.dislikeCount}}
+      </td>
+    </tr>
+  </table>
+</div>
