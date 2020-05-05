@@ -1,18 +1,18 @@
 <div class="container">
   <table class="table table-bordered table-inverse">
     <tr>
-      <th>Author</th>
       <th>Content</th>
+      <th>Author</th>
       <th class="text-right">Read#</th>
       <th class="text-right">Like#</th>
       <th class="text-right">Dislike#</th>
     </tr>
     <tr *ngFor="let note of quotes">
       <td>
-        {{note.author}}
+        <a [routerLink]="['/admin/quote/', note.id]">View</a> {{note.content}}
       </td>
       <td>
-        {{note.content}}
+        {{note.author}}
       </td>
       <td>
         {{note.readCount}}

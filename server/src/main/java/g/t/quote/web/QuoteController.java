@@ -1,5 +1,6 @@
 package g.t.quote.web;
 
+import g.t.quote.entity.Quote;
 import g.t.quote.service.QuoteCreateDto;
 import g.t.quote.service.QuoteDBService;
 import g.t.quote.service.RandomQuoteFetchService;
@@ -37,6 +38,14 @@ public class QuoteController { //TODO:fix cross-origin by proxy
         return quoteFetchService.findRandomQuotes(requestedSize).stream().map(QuoteViewDto::from).collect(Collectors.toList());
     }
 
+    @GetMapping(value = "/by-id/{id}")
+    @CrossOrigin
+    public Quote getQuoteById(@PathVariable Long id) {
+
+        log.info("Got request to read single quote {}", id);
+
+        return quoteDBService.getById(id).orElse(null);
+    }
 
     @PostMapping
     @CrossOrigin

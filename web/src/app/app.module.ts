@@ -9,12 +9,14 @@ import {HttpClientModule} from "@angular/common/http";
 import { HomeComponent } from './component/home/home.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {SubscriptionService} from "./entities/subscription.service";
+import { QuoteViewComponent } from './component/quote-view/quote-view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminComponent,
-    HomeComponent
+    HomeComponent,
+    QuoteViewComponent
   ],
   imports: [
     BrowserModule,
