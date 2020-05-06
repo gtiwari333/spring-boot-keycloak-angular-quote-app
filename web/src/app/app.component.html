@@ -11,6 +11,16 @@
     </li>
   </ul>
 
+  <div *ngIf="userDetails else notLoggedIn">
+    <button type="button" class="btn btn-outline-light ml-auto" (click)="doLogout()">{{  userDetails.username }}
+      Logout
+    </button>
+  </div>
+
+  <ng-template #notLoggedIn>
+    <button type="button" class="btn btn-outline-light ml-auto" (click)="doLogin()">Login</button>
+  </ng-template>
+
 </nav>
 
 <div class="content" role="main">
