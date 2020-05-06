@@ -1,8 +1,0 @@
-{
-  "appId": "io.ionic.starter",
-  "appName": "quote-app",
-  "bundledWebRuntime": false,
-  "npmClient": "npm",
-  "webDir": "www",
-  "cordova": {}
-}

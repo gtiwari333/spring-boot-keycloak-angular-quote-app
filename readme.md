@@ -1,19 +1,24 @@
-# Spring boot REST API and Ionic/Angular mobile app - example
+# Spring Boot REST API + Keycloak and Angular Web App
 
 
 ## Overview
-- A sample app to demonstrate Spring Boot - Ionic mobile app
+- A sample app to demonstrate Spring Boot - Angular Web App
 - The server scraps the websites (uses JSoup) to read Quotes and store into db.
     - see `g.t.quote.scrapper.WebScraper`
-- The client (mobile app) will randomly display such quotes. Has an ability to record and display view count.
+- The client (web app) has option to subscribe to receive random quotes daily
+- The logged in user can manage the quotes, see all    
+- The client (mobile app in branch `mobile-ionic-app`) also pulls and displays the quotes 
 
+# Keycloak Setup
+- Import realm-export.json
+- Manually create users with role = 'user'
 
-### Mobile Client - Ionic3 App
-- Follow installation steps from https://ionicframework.com/docs/v1/guide/installation.html
-- Download android SDK and add ANDROID_HOME. It was C:\Users\gt\AppData\Local\Android\Sdk
-- Generate APK file: `ionic cordova build --release android`
-- DEV/PROD environment --> currently we need to manually comment/uncomment mobile/src/app/app.constants.ts for SERVER_API_URL
-    - Ionic 4 will have default support for environment variables 
+# How to run Locally?
+- Start Server : Run g.t.quote.QuoteApplication
+- Start client : Navigate to web directory and run  `npm start`.
+- Start keycloak docker. Run ``docker run -p 8082:8080 -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin quay.io/keycloak/keycloak:10.0.0``
+
+- Open http://localhost:4200
 
 ### Server: Spring Boot
 - Uses JSoup to parse the quote websites and stores into H2 database at startup
@@ -22,20 +27,7 @@
 - Did below updates for Heroky. Since its a multi module Maven app: 
     - Added file: Procfile `web: java -jar server/target/server-0.0.1-SNAPSHOT.jar -Dserver.port=$PORT`
     - Added server.port entry on application.yml   ` server: port: ${PORT:8080}`
-     
-# How to run/test Locally or in Mobile device?
-- Start Server : Run g.t.quote.QuoteApplication
-- Start client
-    - Comment/Uncomment the line to use
-        - `localhost:8080` to use local server
-        -  `https://gt-quote-app.herokuapp.com/` to use app deployed on heroku
-    - cd to mobile directory and run `ionic server` and `ionic open`
-- To generate APK
-    - Follow https://ionicframework.com/docs/v1/guide/publishing.html
-        - Make sure app.constants.ts is pointing to heroku app URL
-        - Run  ` ionic cordova build --release android`
-        - Grab the debug version of apk  `app-debug.apk` and copy to your android device and install the APK
-            - It should be `FOLDER\quote-app\mobile\platforms\android\app\build\outputs\apk\debug\`
+
 
 # Angular Web App
 - Start locally:  `npm start`.
@@ -49,15 +41,3 @@
     "express-http-proxy": "^1.6.0",
     "port": "^0.8.1",
 ```
-
-# Keycloak User
-- Import realm-export.json
-- Manually create users with role = 'user'
-       
-## Prerequisite 
-- Node
-- NPM/Yarn
-- Ionic cli
-- Android SDK
-- Maven
-- JDK 1.8    
