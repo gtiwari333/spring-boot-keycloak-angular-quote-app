@@ -16,7 +16,6 @@ public class SubscriptionController {
 
 
     @PostMapping
-    @CrossOrigin
     public void save(@RequestBody SubscriptionSaveDto d) {
 
         log.info("Got request to subscribe ");

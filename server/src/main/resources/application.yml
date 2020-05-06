@@ -22,8 +22,7 @@ server:
 keycloak:
   realm: quote-app
   auth-server-url: http://localhost:8082/auth/
-  ssl-required: external
   resource: quote-app-web-client
   public-client: true
-  principal-attribute: name
   cors: true
+  bearer-only: true # login are initiated from Angular Client not from java when processing unauthenticated request

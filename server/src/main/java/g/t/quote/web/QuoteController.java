@@ -20,8 +20,7 @@ public class QuoteController { //TODO:fix cross-origin by proxy
     private final RandomQuoteFetchService quoteFetchService;
     private final QuoteDBService quoteDBService;
 
-    @GetMapping(value = "")
-    @CrossOrigin
+    @GetMapping(value = {"", "/"})
     public List<QuoteViewDto> findRandomQuotes() {
 
         log.info("Got request to read DEFAULT quotes");
@@ -30,7 +29,6 @@ public class QuoteController { //TODO:fix cross-origin by proxy
     }
 
     @GetMapping(value = "/{requestedSize}")
-    @CrossOrigin
     public List<QuoteViewDto> findRandomQuotes(@PathVariable int requestedSize) {
 
         log.info("Got request to read {} quotes", (requestedSize));
@@ -39,7 +37,6 @@ public class QuoteController { //TODO:fix cross-origin by proxy
     }
 
     @GetMapping(value = "/by-id/{id}")
-    @CrossOrigin
     public Quote getQuoteById(@PathVariable Long id) {
 
         log.info("Got request to read single quote {}", id);
@@ -48,7 +45,6 @@ public class QuoteController { //TODO:fix cross-origin by proxy
     }
 
     @PostMapping
-    @CrossOrigin
     public Long save(@RequestBody QuoteCreateDto d) {
 
         log.info("Got request to save new");
