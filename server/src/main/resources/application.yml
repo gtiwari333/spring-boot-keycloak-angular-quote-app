@@ -1,19 +1,29 @@
 spring:
-    jackson:
-        serialization.indent_output: true
-    datasource:
-        type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:h2:file:./target/h2db/db/quote;DB_CLOSE_DELAY=-1
-        #url: jdbc:h2:mem:quote;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-        username: gtdream
-        password:
-    jpa:
-        open-in-view: false
-        show-sql: true
-        hibernate:
-            ddl-auto: update
-    h2:
-        console:
-            enabled: true
+  jackson:
+    serialization.indent_output: true
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:h2:file:./target/h2db/db/quote;DB_CLOSE_DELAY=-1
+    #url: jdbc:h2:mem:quote;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: gtdream
+    password:
+  jpa:
+    open-in-view: false
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  h2:
+    console:
+      enabled: true
 server:
-    port: ${PORT:8080}
+  port: ${PORT:8080}
+
+
+keycloak:
+  realm: quote-app
+  auth-server-url: http://localhost:8082/auth/
+  ssl-required: external
+  resource: quote-app-web-client
+  public-client: true
+  principal-attribute: name
+  cors: true

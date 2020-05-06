@@ -1,15 +1,26 @@
 <div class="container">
-  <table class="table table-bordered table-inverse">
+  <h3>
+    <a [routerLink]="['/admin/new']">+ New Quote</a>
+  </h3>
+
+  <table class="table table-striped table-hover">
+    <thead>
     <tr>
+      <th></th>
       <th>Content</th>
       <th>Author</th>
       <th class="text-right">Read#</th>
       <th class="text-right">Like#</th>
       <th class="text-right">Dislike#</th>
     </tr>
+    </thead>
+    <tbody>
     <tr *ngFor="let note of quotes">
       <td>
-        <a [routerLink]="['/admin/quote/', note.id]">View</a> {{note.content}}
+        <a [routerLink]="['/admin/quote/', note.id]">Edit</a>
+      </td>
+      <td>
+        {{note.content}}
       </td>
       <td>
         {{note.author}}
@@ -24,5 +35,6 @@
         {{note.dislikeCount}}
       </td>
     </tr>
+    </tbody>
   </table>
 </div>
