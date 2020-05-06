@@ -36,7 +36,20 @@
         - Run  ` ionic cordova build --release android`
         - Grab the debug version of apk  `app-debug.apk` and copy to your android device and install the APK
             - It should be `FOLDER\quote-app\mobile\platforms\android\app\build\outputs\apk\debug\`
-            
+
+# Angular Web App
+- Start locally:  `npm start`.
+- Proxy is configured to handle cors request. Review 'start' scripts at  `web/package.json` 
+- Prod build : `ng build --prod`
+- Run in production: using express/node : `node server.js`
+- Note the following dependencies
+
+```
+    "cors": "^2.8.5",
+    "express-http-proxy": "^1.6.0",
+    "port": "^0.8.1",
+```
+       
 ## Prerequisite 
 - Node
 - NPM/Yarn

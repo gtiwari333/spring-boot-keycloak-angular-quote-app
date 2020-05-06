@@ -21,6 +21,9 @@
     "@angular/platform-browser-dynamic": "~9.1.4",
     "@angular/router": "~9.1.4",
     "bootstrap": "^4.4.1",
+    "cors": "^2.8.5",
+    "express-http-proxy": "^1.6.0",
+    "port": "^0.8.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
