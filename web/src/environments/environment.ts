@@ -1,9 +1,28 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
+import {KeycloakConfig, KeycloakInitOptions, KeycloakOptions} from "keycloak-angular";
+
+let keycloakConfig: KeycloakConfig = {
+  url: 'http://localhost:8082/auth',
+  realm: 'quote-app',
+  clientId: 'quote-app-web-client'
+};
+
+const keycloakInitOptions: KeycloakInitOptions = {
+  onLoad: 'check-sso',
+  checkLoginIframe: false
+};
+
+const keycloakOptions: KeycloakOptions = {
+  config: keycloakConfig,
+  initOptions: keycloakInitOptions,
+  enableBearerInterceptor: true
+};
 
 export const environment = {
-  production: false
+  production: false,
+  keycloakOptions
 };
 
 /*

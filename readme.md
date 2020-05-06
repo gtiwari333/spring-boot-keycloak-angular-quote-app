@@ -49,6 +49,10 @@
     "express-http-proxy": "^1.6.0",
     "port": "^0.8.1",
 ```
+
+# Keycloak User
+- Import realm-export.json
+- Manually create users with role = 'user'
        
 ## Prerequisite 
 - Node

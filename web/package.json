@@ -27,7 +27,9 @@
     "port": "^0.8.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
-    "zone.js": "~0.10.2"
+    "zone.js": "~0.10.2",
+    "keycloak-angular": "7.2.0",
+    "keycloak-js": "10.0.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.901.4",
