@@ -1,8 +1,5 @@
-package g.t.quote.service;
+package quoteapp.module.quote;
 
-import g.t.quote.entity.Quote;
-import g.t.quote.entity.QuoteRepository;
-import g.t.quote.entity.Source;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;

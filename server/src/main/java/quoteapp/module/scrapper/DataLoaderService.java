@@ -1,8 +1,9 @@
-package g.t.quote.scrapper;
+package quoteapp.module.scrapper;
 
-import g.t.quote.entity.Quote;
-import g.t.quote.entity.QuoteRepository;
-import g.t.quote.entity.Source;
+import quoteapp.module.quote.Quote;
+import quoteapp.module.quote.QuoteRepository;
+import quoteapp.module.quote.Source;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -15,13 +16,10 @@ import java.util.List;
 
 @Component
 @Slf4j
-public class ScrapperService {
+@RequiredArgsConstructor
+public class DataLoaderService { //saves quotes to db during app startup
 
     private final QuoteRepository quoteRepository;
-
-    public ScrapperService(QuoteRepository quoteRepository) {
-        this.quoteRepository = quoteRepository;
-    }
 
     @PostConstruct
     public void process() {

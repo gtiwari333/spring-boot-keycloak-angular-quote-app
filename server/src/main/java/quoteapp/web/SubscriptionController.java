@@ -1,7 +1,7 @@
-package g.t.quote.web;
+package quoteapp.web;
 
-import g.t.quote.module.subscription.SubscriptionSaveDto;
-import g.t.quote.module.subscription.SubscriptionService;
+import quoteapp.module.subscription.SubscriptionSaveDto;
+import quoteapp.module.subscription.SubscriptionService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;

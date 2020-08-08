@@ -1,4 +1,4 @@
-package g.t.quote.entity;
+package quoteapp.module.quote;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;

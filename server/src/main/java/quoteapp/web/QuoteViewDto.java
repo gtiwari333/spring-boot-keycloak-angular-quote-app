@@ -1,6 +1,6 @@
-package g.t.quote.web;
+package quoteapp.web;
 
-import g.t.quote.entity.Quote;
+import quoteapp.module.quote.Quote;
 import lombok.Data;
 import org.springframework.beans.BeanUtils;
 

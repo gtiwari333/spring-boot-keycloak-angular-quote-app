@@ -4,18 +4,21 @@
 ## Overview
 - A sample app to demonstrate Spring Boot - Angular Web App
 - The server scraps the websites (uses JSoup) to read Quotes and store into db.
-    - see `g.t.quote.scrapper.WebScraper`
+    - see `WebScraper` interface
+    - see also `GoodReadsScrapper`
 - The client (web app) has option to subscribe to receive random quotes daily
-- The logged in user can manage the quotes, see all    
-- The client (mobile app in branch `mobile-ionic-app`) also pulls and displays the quotes 
+- The logged in user can manage the quotes, view all    
+- The client (mobile app in branch `mobile-ionic-app`) also pulls and displays the quotes
 
 # Keycloak Setup
 - Import realm-export.json
 - Manually create users with role = 'user'
 
 # How to run Locally?
-- Start Server : Run g.t.quote.QuoteApplication
-- Start client : Navigate to web directory and run  `npm start`.
+- Start Server : 
+    - Import project into your IDE and run QuoteApplication inside server module
+    - OR navigate to server module and run 'mvnw or ./mvnw'. The default goal is spring-boot:run which starts the app automatically
+- Start client : Navigate to web module and run  'npm install' for one time to install dependencies and then `npm start` afterwards to run the ap
 - Start keycloak docker. Run ``docker run -p 8082:8080 -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin quay.io/keycloak/keycloak:10.0.0``
 
 - Open http://localhost:4200

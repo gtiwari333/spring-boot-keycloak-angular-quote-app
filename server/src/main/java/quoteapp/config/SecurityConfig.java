@@ -1,4 +1,4 @@
-package g.t.quote.config;
+package quoteapp.config;
 
 import lombok.RequiredArgsConstructor;
 import org.keycloak.adapters.KeycloakConfigResolver;
