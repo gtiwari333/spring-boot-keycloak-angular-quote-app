@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.List;
 
 @Entity
 @Data
@@ -35,11 +36,15 @@ public class Quote implements Serializable {
 
     private long dislikeCount;
 
-    public Quote(Source source, String content, String author) {
+    @ElementCollection
+    public List<String> tags;
+
+    public Quote(Source source, String content, String author, List<String> tags) {
         this.source = source;
         this.content = content;
         this.author = author;
         this.addedOn = Instant.now();
+        this.tags = tags;
     }
 
 

@@ -1,8 +1,10 @@
 package quoteapp.web;
 
-import quoteapp.module.quote.Quote;
 import lombok.Data;
 import org.springframework.beans.BeanUtils;
+import quoteapp.module.quote.Quote;
+
+import java.util.List;
 
 @Data
 public class QuoteViewDto {
@@ -18,6 +20,7 @@ public class QuoteViewDto {
     private long likeCount;
 
     private long dislikeCount;
+    private List<String> tags;
 
     public static QuoteViewDto from(Quote q) {
         QuoteViewDto d = new QuoteViewDto();

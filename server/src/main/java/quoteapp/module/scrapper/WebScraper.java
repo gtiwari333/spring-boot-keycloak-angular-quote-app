@@ -13,7 +13,7 @@ public interface WebScraper {
     static WebScraper getInstance(Source source) {
         switch (source) {
             case GOOD_READS:
-                return new GoodReadsScrapper(source);
+                return new GoodReadsScrapper();
         }
 
         return null;
