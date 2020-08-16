@@ -1,4 +1,4 @@
-package g.t.quote;
+package quoteapp;
 
 public class Utils {
 

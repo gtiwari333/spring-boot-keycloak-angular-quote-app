@@ -1,9 +1,9 @@
-package g.t.quote.web;
+package quoteapp.web;
 
-import g.t.quote.entity.Quote;
-import g.t.quote.service.QuoteCreateDto;
-import g.t.quote.service.QuoteDBService;
-import g.t.quote.service.RandomQuoteFetchService;
+import quoteapp.module.quote.Quote;
+import quoteapp.module.quote.QuoteCreateDto;
+import quoteapp.module.quote.QuoteDBService;
+import quoteapp.module.quote.RandomQuoteFetchService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;

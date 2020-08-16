@@ -1,4 +1,4 @@
-package g.t.quote.entity;
+package quoteapp.module.quote;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

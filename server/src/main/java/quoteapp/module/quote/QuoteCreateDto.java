@@ -1,4 +1,4 @@
-package g.t.quote.service;
+package quoteapp.module.quote;
 
 public class QuoteCreateDto {
     private String author;

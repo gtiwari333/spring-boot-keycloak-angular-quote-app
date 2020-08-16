@@ -1,4 +1,4 @@
-package g.t.quote.module.subscription;
+package quoteapp.module.subscription;
 
 import lombok.Data;
 

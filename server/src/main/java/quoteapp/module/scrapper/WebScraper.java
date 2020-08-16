@@ -1,7 +1,7 @@
-package g.t.quote.scrapper;
+package quoteapp.module.scrapper;
 
-import g.t.quote.entity.Quote;
-import g.t.quote.entity.Source;
+import quoteapp.module.quote.Quote;
+import quoteapp.module.quote.Source;
 
 import java.io.IOException;
 import java.util.List;

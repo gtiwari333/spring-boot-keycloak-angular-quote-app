@@ -1,26 +1,23 @@
-package g.t.quote.scrapper;
+package quoteapp.module.scrapper;
 
-import g.t.quote.entity.Quote;
-import g.t.quote.entity.Source;
+import quoteapp.module.quote.Quote;
+import quoteapp.module.quote.Source;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import quoteapp.Utils;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static g.t.quote.Utils.clean;
-
 @Slf4j
-public class GoodReadsScrapper implements WebScraper {
+@RequiredArgsConstructor
+public class GoodReadsScrapper implements WebScraper { //standalone app to read quotes
     private final Source source;
-
-    public GoodReadsScrapper(Source source) {
-        this.source = source;
-    }
 
     @Override
     public List<Quote> getQuotes() throws IOException {
@@ -35,8 +32,8 @@ public class GoodReadsScrapper implements WebScraper {
             log.trace(qStr);
 
             String[] parts = qStr.split("―");
-            String quoteText = clean(parts[0].replaceAll("“", "").replaceAll("”", ""));
-            String author = clean(parts[1].trim());
+            String quoteText = Utils.clean(parts[0].replaceAll("“", "").replaceAll("”", ""));
+            String author = Utils.clean(parts[1].trim());
 
             quotes.add(new Quote(source, quoteText, author));
         }
