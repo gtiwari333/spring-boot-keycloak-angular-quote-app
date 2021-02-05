@@ -53,6 +53,8 @@ public class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter {
         super.configure(http);
 
         http
+                .headers().frameOptions().sameOrigin()
+            .and()
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/quotes*").hasRole("admin") //only this is not public
