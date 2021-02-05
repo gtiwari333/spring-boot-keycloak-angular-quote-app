@@ -22,33 +22,29 @@ public class QuoteController { //TODO:fix cross-origin by proxy
 
     @GetMapping(value = {"", "/"})
     public List<QuoteViewDto> findRandomQuotes() {
-
         log.info("Got request to read DEFAULT quotes");
-
-        return quoteFetchService.findRandomQuotes().stream().map(QuoteViewDto::from).collect(Collectors.toList());
+        return quoteFetchService.findRandomQuotes().stream()
+                .map(QuoteViewDto::from)
+                .collect(Collectors.toList());
     }
 
     @GetMapping(value = "/{requestedSize}")
     public List<QuoteViewDto> findRandomQuotes(@PathVariable int requestedSize) {
-
         log.info("Got request to read {} quotes", (requestedSize));
-
-        return quoteFetchService.findRandomQuotes(requestedSize).stream().map(QuoteViewDto::from).collect(Collectors.toList());
+        return quoteFetchService.findRandomQuotes(requestedSize).stream()
+                .map(QuoteViewDto::from)
+                .collect(Collectors.toList());
     }
 
-    @GetMapping(value = "/by-id/{id}")
+    @GetMapping(value = "/id/{id}")
     public Quote getQuoteById(@PathVariable Long id) {
-
         log.info("Got request to read single quote {}", id);
-
         return quoteDBService.getById(id).orElse(null);
     }
 
     @PostMapping
     public Long save(@RequestBody QuoteCreateDto d) {
-
         log.info("Got request to save new");
-
         return quoteDBService.save(d).getId();
     }
 

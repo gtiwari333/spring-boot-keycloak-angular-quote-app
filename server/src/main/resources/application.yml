@@ -18,6 +18,12 @@ spring:
 server:
   port: ${PORT:8080}
 
+springdoc:
+  swagger-ui:
+    defaultModelsExpandDepth: -1
+    path: /  #root
+    enabled: true
+  packages-to-scan: quoteapp.web
 
 keycloak:
   realm: quote-app
