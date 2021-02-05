@@ -12,8 +12,14 @@
 - The client (mobile app in branch `mobile-ionic-app`) also pulls and displays the quotes
 
 # Keycloak Setup
-- Import realm-export.json
-- Manually create users with role = 'user'
+- Run using docker
+    - $cd _config
+    - $docker-compose up
+    - note that two users will be already loaded from realm-export.json
+        - username/passwords are: user1/pass, user2/pass
+- Or run manually:
+    - Create a realm named 'quote-app'
+    - Manually create users with role = 'user'
 
 # How to run Locally?
 - Start Server : 
@@ -34,6 +40,7 @@
 
 
 # Angular Web App
+- Install Dependencies: `npm install`
 - Start locally:  `npm start`.
 - Proxy is configured to handle cors request. Review 'start' scripts at  `web/package.json` 
 - Prod build : `ng build --prod`
