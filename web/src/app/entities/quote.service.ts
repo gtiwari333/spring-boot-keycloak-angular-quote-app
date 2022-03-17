@@ -23,7 +23,7 @@ export class QuoteService {
 
   getQuoteById(id?: number): Observable<any> {
     return this.http
-      .get<IQuote>(`${this.resourceUrl}/by-id/${id}`);
+      .get<IQuote>(`${this.resourceUrl}/id/${id}`);
   }
 
 
